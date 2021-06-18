@@ -1,0 +1,24 @@
+{% extends 'ecommerece/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+</head> 
+<body>
+
+<div class="box-element-detail">
+<div class="path"> Home\Product\{{details.name}} </div>
+<div class="display-img"><img src="{{ details.Image.url }}" height="200"></div>
+<div class="title"> <h2>{{ details.name }}</h2></div>
+
+{{ details.descreption }}
+<input type="number" value="{{ details.qty }}">
+</div>
+{% endblock %}
+
+</body>
+</html>

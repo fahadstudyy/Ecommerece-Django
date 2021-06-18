@@ -1,0 +1,45 @@
+
+
+
+{% extends 'ecommerece/base.html' %}
+
+{% block content %}
+<br><br>
+
+{% if searched %}
+<div class="container text-center">
+You Searched For " <b> {{ searched }} </b>"
+
+
+{% for results in result %}
+
+{% if results.name != NULL %}
+
+
+<div class="row justify-content-center my-3">
+    <div class="col-md-10">
+        <a href="{% url 'product_detail' results.id %}">
+          <img src="{{ results.Image.url }}" height="200"><br>
+           
+            {{ results.name }}<br>
+            {{ results.descreption }}<br>
+            {% if results.qty > 0 %}
+            Quantity: {{ results.qty }}
+            {% else %}
+            <b>Product is out of stock</b>
+            {% endif %}
+        </div>
+    </div>
+</a>
+</div>
+{% else %} 
+No Search Found
+{% endif %}
+{% endfor %}
+
+{% else %}
+<div class = "container text-center" ><h1> Search Not Found</h1></div>
+{% endif %}
+
+{% endblock %}
+
